@@ -13,13 +13,64 @@ async function fetchData() {
         }
 
         const data = await response.json();
+
         // name
         const pokemonNameElement = document.getElementById("pokemon-name-element");
-        pokemonNameElement.textContent = data.name
+        pokemonNameElement.textContent = data.name;
+        
         // img sprite
         const pokemonSprite = document.getElementById("sprites");
-        pokemonSprite.src = data.sprites.front_default
-        
+        pokemonSprite.src = data.sprites.front_default;
+
+        // height
+        const pokemonHeightElement = document.getElementById("height");
+        pokemonHeightElement.textContent = `Height: ${data.height}`;
+
+        // weight
+        const pokemonWeightElement = document.getElementById("weight");
+        pokemonWeightElement.textContent = `Weight: ${data.weight}`;
+
+        // types
+        const pokemonTypesElement = document.getElementById("types");
+        if(data.types[0] && data.types[1]){
+            pokemonTypesElement.textContent = `Types: ${data.types[0].type.name}, ${data.types[1].type.name}`
+        } 
+        else{
+           pokemonTypesElement.textContent = `Type: ${data.types[0].type.name}`
+        }
+
+        // abilites
+        const pokemonAbilitiesElement = document.getElementById("abilities");
+        if(data.abilities[0] && data.abilities[1]){
+            pokemonAbilitiesElement.textContent = `Abilties: ${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}`
+        }
+        else {
+            pokemonAbilitiesElement.textContent = `Abiltiy: ${data.abilities[0].ability.name}`
+        }
+
+         //hp 
+        const pokemonHpElement = document.getElementById("hp");
+        pokemonHpElement.textContent = `Hp: ${data.stats[0].base_stat}`;
+
+        // attack 
+        const pokemonAttackElement = document.getElementById("attack");
+        pokemonAttackElement.textContent = `Attack: ${data.stats[1].base_stat}`;
+
+        // defense 
+        const pokemonDefenseElement = document.getElementById("defense");
+        pokemonDefenseElement.textContent = `Defense: ${data.stats[2].base_stat}`;
+
+        // special attack
+        const pokemonSpecialAttackElement = document.getElementById("special-attack");
+        pokemonSpecialAttackElement.textContent = `Special Attack: ${data.stats[3].base_stat}`;
+
+        // special defense
+        const pokemonSpecialDefenseElement = document.getElementById("special-defense");
+        pokemonSpecialDefenseElement.textContent = `Special Defense: ${data.stats[4].base_stat}`;
+
+        // speed
+        const pokemonSpeedElement = document.getElementById("speed");
+        pokemonSpeedElement.textContent = `Speed: ${data.stats[5].base_stat}`;
 
     }
     catch(error){
