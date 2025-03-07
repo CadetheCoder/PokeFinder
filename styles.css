@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
+    background-color: rgb(221, 221, 221);
 }
 
 #header {
@@ -93,6 +94,7 @@ img{
     border: 1px solid black;
     width: 200px;
     border-radius: 5px;
+    background-color: white;
 }
 
 #results-container{
@@ -100,34 +102,29 @@ img{
     align-items: center;
     justify-content: center;
     margin: 20px;
-    gap: 5px;
     flex-wrap: wrap;
-    gap: 20px;
     font-size: 10px;
+    padding-left: 10px;
 }
 
 #height-container{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ff93e8;
-    border-radius: 2px;
+    border-radius: 10px;
     padding: 10px;
     gap: 10px;
     color: black;
 }
 
 #types-container{
-    border-radius: 2px;
     padding: 5px;
     font-style: italic;
-    background-color: #baffc4;
 }
 
 #hp-container{
-    border-radius: 2px;
+    border-radius: 10px;
     padding: 5px;
-    background-color: #baffc4;
 }
 
 #stats-card{
@@ -135,4 +132,10 @@ img{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: #318CE7;
+
+#stats-card p {
+    margin: 1px;
 }
