@@ -8,71 +8,71 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-#header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFDE00;
-    padding: 20px;
-    gap: 20px;
-    color: #FFDE00;      
-    flex-wrap: wrap                            
+/* Start of Nav */
+
+header{
+    background-color: #3fb6a4;
 }
 
-#search-div{
+.navbar{
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #3fb6a4;
+    padding: 20px;
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
 }
+
+.navbar ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* End of Nav */
+
+/* Start of Search */
+
+.search-container{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 28px;
+    background-color: #f6f6f6;
+}
+
+.search-input{
+    font-size: 20px;
+    color: #333333;
+    margin-left: 14px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+}
+
+/* End of Search */
 
 img{
  width: 125px;
  height: 50px;
 }
 
-.search-bar{
-    width: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    display: flex;
-    align-items: center;
-    border-radius: 60px;
-}
-
-.search-bar input{
-    background: transparent;
-    flex: 1;
-    border: 0;
-    outline: none;
-    padding: 10px 24px;
-    font-size: 20px;
-    backdrop-filter: blur(4px)
-}
-
-.search-bar button img{
-    width: 30px;
-    height: 30px;
-}
-.search-bar button{
-    border: 0;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    background: transparent;
-    cursor: pointer;
-}
-
-.search-bar input:-webkit-autofill,
-.search-bar input:-webkit-autofill:hover,
-.search-bar input:-webkit-autofill:focus,
-.search-bar input:-webkit-autofill:active {
-    background: transparent !important;
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-    color: inherit !important;
-    transition: background-color 5000s ease-in-out 0s; /* Ensures transparency stays */
-}
-
 #section-title{
-    background-color: #3B4CCA;
+    background-color: #6a6a6a;
     color: white;
-    padding: 5px;
+    padding: 15px;
+    font-size: 25px;
 }
 
 #pokemon-name-element{
