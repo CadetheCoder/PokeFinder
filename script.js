@@ -1,5 +1,14 @@
-const searchBtn = document.getElementById("search-btn");
 const apiUrl = "https://pokeapi.co/api/v2/pokemon"
+const searchInput = document.querySelector(".search-input");
+const form = document.querySelector(".search-container");
+
+form.addEventListener("submit", e => {
+    e.preventDefault();
+})
+
+searchInput.addEventListener("keydown", () => {
+    searchInput.value.trim();
+})
 
 async function fetchData() {
     
@@ -78,7 +87,3 @@ async function fetchData() {
     }
 }
 
-searchBtn.addEventListener("click", e => {
-    e.preventDefault();
-    fetchData();
-})
