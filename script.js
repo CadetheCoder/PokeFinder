@@ -8,7 +8,7 @@ form.addEventListener("submit", e => {
 })
 
  // Home Page
- if(window.location.pathname.includes("index.html")){
+ /* if(window.location.pathname.includes("index.html")){
 
     async function fetchGalleryData() {
 
@@ -21,7 +21,9 @@ form.addEventListener("submit", e => {
             const galleryDisplay = document.getElementById("gallery-display");
             galleryDisplay.innerHTML = data.results.map( d => 
                 `<a href="/search-results.html?query=${encodeURIComponent(d.name)}" id="gallery-link">
-                <h3>${d.name}</h3>
+                <div class="gallery-box">
+                    <h3>${d.name}</h3>
+                </div>
                 </a>`
             ).join("");
         }
@@ -32,7 +34,7 @@ form.addEventListener("submit", e => {
 
     fetchGalleryData()
 
-} 
+}  */
 
 // Search Input & Query
 searchInput.addEventListener("keydown", e => {
