@@ -1,3 +1,5 @@
+/* Start of Body */
+
 *{
     margin: 0px;
     padding: 0px;
@@ -10,6 +12,9 @@ body {
 section{
     display: contents;
 }
+
+/* End of Body */
+
 
 /* Start of Nav */
 
@@ -105,24 +110,12 @@ nav img{
     max-width: 1000px;
 }
 
-/* End of Gallery */
-
-/* Start of Container */
-
-.container{
-    min-height: 100dvh;
-    display: grid;
-    max-width: 1000px;
-    margin: 0 auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows:  minmax(400px, auto);
-    grid-template-areas:
-    "hero-img-box hero-img-box hero-text-box hero-text-box"
-    "gallery-display gallery-display gallery-display gallery-display";
-    margin-top: 80px;
+#galley-link {
+    text-decoration: none;
+    color: black
 }
 
-/* End of Container */
+/* End of Gallery */
 
 
 /* Start of Footer */
@@ -160,78 +153,61 @@ footer{
 /* End of Footer */
 
 
+/* Start of Search Results Page */
 
-#section-title{
-    background-color: #6a6a6a;
-    color: white;
-    padding: 15px;
-    font-size: 25px;
-}
-
-#pokemon-name-element{
-    font-weight: bold;
-    background-color: #ff9420;
-    color: white;
-    padding: 10px;
-    border-radius: 4px 4px 0px 0px;
-    font-family: "Press Start 2P", system-ui;
-}
-
-#sprites{
-    height: 150px;
-    width: 150px;
-}
-
-#name-img-card{
-    border: 1px solid black;
-    width: 200px;
-    border-radius: 5px;
-    background-color: white;
-}
-
-#results-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    flex-wrap: wrap;
-    font-size: 10px;
-    padding-left: 10px;
-    gap: 30px;
-}
-
-#height-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    padding: 10px;
-    gap: 10px;
-    color: black;
-    background-color: aquamarine;
-}
-
-#types-container{
-    padding: 5px;
-    font-style: italic;
-    background-color: rgb(255, 167, 242);
-    border-radius: 10px;
-}
-
-#hp-container{
-    border-radius: 10px;
-    padding: 5px;
-    background-color: aquamarine;
-}
-
-#stats-card{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+#search-results-display{
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border-radius: 2px;
+    justify-content: top;
+    align-items: center;
 }
 
-#stats-card p {
-    margin: 1px;
+#search-results-container{
+    max-width: 1000px;
+    margin: 0 auto;
 }
+
+#search-results-display h3{
+    font-size: 50px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#search-results-display img{
+    height: 300px;
+    width: 300px;
+}
+
+#search-results-img-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(237, 237, 237);
+    border-radius: 12px;
+}
+
+#myChart {
+    width: 500px !important; /* Set a fixed width */
+    height: 200px !important; /* Set a fixed height */
+}
+/* End of Search Results Page */
+
+
+/* Start of Container */
+
+.container{
+    min-height: 100dvh;
+    display: grid;
+    max-width: 1000px;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows:  minmax(400px, auto);
+    grid-template-areas:
+    "hero-img-box hero-img-box hero-text-box hero-text-box"
+    "gallery-display gallery-display gallery-display gallery-display";
+    margin-top: 80px;
+}
+
+/* End of Container */
