@@ -172,6 +172,7 @@ nav img{
     padding: 3px;
     font-size: 12px;
     border-radius: 2px;
+    color: white;
 }
 
 .fire{
@@ -180,6 +181,54 @@ nav img{
 
 .flying{
     background-color: #87CEEB;
+}
+
+.psychic{
+    background-color: #FF69B4;
+}
+
+.ghost{
+    background-color: #2C3E50;
+}
+
+.poison{
+    background-color: #6A0DAD;
+}
+
+.fighting{
+    background-color: #D2691E;
+}
+
+.steel{
+    background-color: #B8B8D0;
+}
+
+.water{
+    background-color: #0077BE;
+}
+
+.dark{
+    background-color: #1C1C1C;
+}
+
+.dragon{
+    background-color: #8B0000;
+}
+
+.ground{
+    background-color: #D4A017;
+}
+
+.electric{
+    background-color: #FFD700;
+}
+
+.bug{
+    background-color: #A8B820;
+}
+
+.normal{
+    background-color: #A8A090;
 }
 
 #gallery-header{
@@ -200,6 +249,7 @@ footer{
     justify-content: space-evenly;
     align-items: center;
     padding: 25px;
+    margin-top: 100px;
 }
 
 #footer-contacts{
