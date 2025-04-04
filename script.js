@@ -7,35 +7,6 @@ form.addEventListener("submit", e => {
     e.preventDefault();
 })
 
- // Home Page
- /* if(window.location.pathname.includes("index.html")){
-
-    async function fetchGalleryData() {
-
-        try{
-            const galleryResponse = await fetch("https://pokeapi.co/api/v2/pokemon?limit=12");
-            if(!galleryResponse.ok){
-                throw new Error("could not fetch resource")
-            }
-            const data = await galleryResponse.json();
-            const galleryDisplay = document.getElementById("gallery-display");
-            galleryDisplay.innerHTML = data.results.map( d => 
-                `<a href="/search-results.html?query=${encodeURIComponent(d.name)}" id="gallery-link">
-                <div class="gallery-box">
-                    <h3>${d.name}</h3>
-                </div>
-                </a>`
-            ).join("");
-        }
-        catch(error){
-            console.error(error)
-        }
-    }
-
-    fetchGalleryData()
-
-}  */
-
 // Search Input & Query
 searchInput.addEventListener("keydown", e => {
     if (e.key === "Enter"){
@@ -70,8 +41,9 @@ if(window.location.pathname.includes("search-results.html")){
             const searchResultsDisplay = document.getElementById("search-results-display");
 
             searchResultsDisplay.innerHTML =`
-            <h3>${data.name} #${data.id}</h3>
+            
             <div id="search-results-img-box">
+                <h3>${data.name} #${data.id}</h3>
                 <img src="${data.sprites.front_default}">
             </div>
             
@@ -130,6 +102,7 @@ if(window.location.pathname.includes("search-results.html")){
         catch(error){
             console.error(error);
         }
+
     }
 
     fetchData()
