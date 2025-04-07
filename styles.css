@@ -280,20 +280,42 @@ footer{
 
 /* Start of Search Results Page */
 
-#search-results-display{
+#search-results-container{
+    max-width: 300px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
     min-height: 100dvh;
 }
 
-#search-results-container{
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: minmax(400px, auto);
-    grid-template-areas: "search-results-img-box"
-                         "chart";
+#desc-box{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+#height-box{
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(127, 214, 255);
+    border-radius: 12px;
+    padding: 20px;
     justify-content: center;
     align-items: center;
+}
+
+#search-results-header{
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 40px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 #search-results-display h3{
@@ -303,23 +325,21 @@ footer{
 }
 
 #search-results-display img{
+    height: 100%;
+    width: 100%;
+}
+
+#search-results-img-box{
+    background-color: rgb(237, 237, 237);
+    border-radius: 12px;
     height: 300px;
     width: 300px;
 }
 
-#search-results-img-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(237, 237, 237);
-    border-radius: 12px;
-    grid-area: search-results-img-box;
-}
-
 #myChart {
-    grid-area: chart;
-}
+    width: 460px !important;
+    height: 225px !important;
+  }  
 
 #search-results-display{
     display: contents;
@@ -403,7 +423,7 @@ footer{
     width: 400px;
     height: 100%;
     border-radius: 10px;
-    box-shadow: 2px 2px 15px rgb(0, 179, 255);
+    box-shadow: 2px 2px 15px rgb(197, 237, 255);
 }
 
 #contact-form{
