@@ -386,8 +386,82 @@ footer{
     color: #1e90ff
 }
 
-
 /* End of About Us Page */
+
+
+/* Start of Contact Page */
+
+.contact-container{
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-box{
+    margin-top: 40px;
+    padding: 40px;
+    width: 400px;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px rgb(0, 179, 255);
+}
+
+#contact-form{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.contact-container h1{
+    margin: 20px;
+}
+
+.contact-container p{
+    margin: 20px;
+}
+
+.contact-container input{
+    font-size: 20px;
+    height: 30px;
+}
+
+.contact-container label{
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.contact-container textarea{
+    height: 100px;
+    resize: none;
+    font-size: 20px;
+}
+
+.inputs{
+    outline: none;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    transition: 0.3s ease-in-out;
+    padding: 12px;
+}
+
+.inputs:focus{
+    border-color: rgb(0, 153, 255);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1)
+}
+
+.contact-container button{
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    background-color: rgb(0, 153, 255);
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+/* End of Contact Page */
 
 
 /* Start of Container */
