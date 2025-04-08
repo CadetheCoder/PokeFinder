@@ -1,6 +1,14 @@
 const apiUrl = "https://pokeapi.co/api/v2/pokemon"
 const searchInput = document.querySelector(".search-input");
 const form = document.querySelector(".search-container");
+const hamMenu = document.querySelector(".ham-menu");
+const offScreenMenu = document.querySelector(".off-screen-menu");
+
+// Hamburger Menu
+hamMenu.addEventListener("click", () => {
+    hamMenu.classList.toggle("active");
+    offScreenMenu.classList.toggle("active"); 
+});
 
 // Form 
 form.addEventListener("submit", e => {
@@ -142,6 +150,28 @@ if(window.location.pathname.includes("search-results.html")){
 const random = document.getElementById("random");
 const randomNumber = Math.floor(Math.random() * 1025) + 1;
 random.href = `/search-results.html?query=${randomNumber}`;
+
+if(window.location.pathname.includes("pokedex.html")){
+    const pokedexDisplay = document.getElementById("pokedex-display");
+
+    async function fetchPokedexData(){
+
+        try{
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+
+            if(!response.ok){
+                throw new Error("Could not fetch resource");
+            }
+
+            const data = await response.json();
+            
+        }
+        catch(error){
+            console.error(error);
+        }
+    }
+
+}
 
 
 
