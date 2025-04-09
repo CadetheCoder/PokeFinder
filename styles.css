@@ -13,6 +13,10 @@ section{
     display: contents;
 }
 
+:root{
+    --dodger-blue: #1e90ff;
+}
+
 /* End of Body */
 
 
@@ -52,7 +56,7 @@ nav img{
 .off-screen-menu{
     height: 100vh;
     width: 100%;
-    max-width: 640px;
+    max-width: 540px;
     position: fixed;
     top: 0;
     right: -640px;
@@ -61,16 +65,43 @@ nav img{
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 30px;
+    font-size: 50px;
     transition: right .3 ease-in-out;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.9); 
+    background-color: white;
+}
+
+.off-screen-menu ul li a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+
+.off-screen-menu ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease-in-out;
+}
+
+.off-screen-menu ul li a:hover::after {
+    width: 100%;
 }
 
 .off-screen-menu ul{
     display: flex;
     flex-direction: column;
-    gap: 70px;
+    gap: 75px;
+}
+
+.off-screen-menu ul li a{
+    font-size: 20px;
+    color: black;
 }
 
 .off-screen-menu.active{
@@ -108,7 +139,7 @@ nav img{
 }
 
 .ham-menu.active span {
-    background-color: white;
+    background-color: black;
 }
 
 .ham-menu.active span:nth-child(1) {
@@ -257,8 +288,8 @@ nav img{
 
 #gallery-header{
     font-size: clamp(20px, 6vw, 50px);
-    margin-top: 50px;
-    padding-top: 70px;
+    margin-top: 30px;
+    padding-top: 40px;
     margin-bottom: 40px;
     border-top: 1px solid grey;
     text-align: center;
@@ -343,6 +374,8 @@ footer{
     justify-content: space-between;
     width: 100%;
     max-width: 1000px;
+    flex-wrap: wrap;
+    gap: 20px
 }
 
 #footer-contacts ul{
@@ -442,6 +475,7 @@ footer{
     margin-top: 40px;
     margin-bottom: 40px;
     border-bottom: 2px solid grey;
+    padding-bottom: 10px;
 }
 
 .terms-container h2{
@@ -454,7 +488,7 @@ footer{
 }
 
 .terms-container strong{
-    color: #1e90ff
+    color: var(--dodger-blue);
 }
 
 /* End of Terms Page */
@@ -472,6 +506,7 @@ footer{
     margin-top: 40px;
     margin-bottom: 40px;
     border-bottom: 2px solid grey;
+    padding-bottom: 10px;
 }
 
 .about-us-container h2{
@@ -484,7 +519,7 @@ footer{
 }
 
 .about-us-container strong{
-    color: #1e90ff
+    color: var(--dodger-blue);
 }
 
 /* End of About Us Page */
@@ -590,8 +625,21 @@ footer{
 
 /* End of Container */
 
+@media (max-width: 999px) {
 
-/* Start of 640px Media Query */
+}
+
+
+/* Start of 851px Media Query */
+@media (min-width: 851px) {
+    .off-screen-menu {
+      display: none;
+    }
+  }
+/* End of 851px Media Query */
+
+
+/* Start of 850px Media Query */
 
 @media (max-width: 850px) {
 
@@ -609,38 +657,6 @@ footer{
         justify-content: center;
         flex-direction: column;
         align-items: center;
-    }
-
-    .off-screen-menu{
-        height: 100vh;
-        width: 100%;
-        max-width: 640px;
-        position: fixed;
-        top: 0;
-        right: -640px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        font-size: 50px;
-        transition: right .3 ease-in-out;
-        z-index: 1;
-        background-color: rgba(0, 0, 0, 0.9); 
-    }
-
-    .off-screen-menu ul li a:hover{
-        color: rgb(255, 115, 0);
-    }
-    
-    .off-screen-menu ul{
-        display: flex;
-        flex-direction: column;
-        gap: 75px;
-    }
-
-    .off-screen-menu ul li a{
-        font-size: 30px;
     }
 
     .ham-menu{
@@ -661,5 +677,79 @@ footer{
         height: 100%;
     }
 
+    nav img{
+        width: 100%;
+        height: auto;
+        max-width: 15vw;
+    }
+
 }
-    /* End of Nav Media Query */
+
+/* End of 850px Media Query */
+
+
+/* Start of 650px Media Query */
+
+@media (max-width: 650px) {
+
+    .search-container{
+        padding: 2vw;
+    }
+    
+    .search-input{
+        font-size: 2vw;
+    }
+
+    footer{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 25px;
+        margin-top: 100px;
+    }
+    
+    #footer-contacts{
+        display: flex;
+        gap: 50px
+    }
+    
+    #footer-box{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 1000px;
+    }
+    
+    #footer-contacts ul{
+        display: flex;
+        gap: 25px;
+        list-style: none;
+    }
+    
+    #footer-contacts a {
+        text-decoration: none;
+        color: black
+    }
+
+}
+
+/* End of 650px Media Query */
+
+@media (max-width: 640px){
+
+    .off-screen-menu{
+        max-width: 640px;
+    }
+}
+
+@media (max-width: 480px){
+
+
+
+}
+
+@media (max-width: 375px){
+    .search-container{
+
+    }
+}
