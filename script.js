@@ -3,6 +3,8 @@ const searchInput = document.querySelector(".search-input");
 const form = document.querySelector(".search-container");
 const hamMenu = document.querySelector(".ham-menu");
 const offScreenMenu = document.querySelector(".off-screen-menu");
+const searchMenu = document.querySelector(".search-menu");
+const offScreenSearchMenu = document.querySelector(".off-screen-search-menu");
 
 // Hamburger Menu
 hamMenu.addEventListener("click", () => {
