@@ -314,61 +314,20 @@ nav img{
     text-align: center;
 }
 
-.fire{
-    background-color: rgb(255, 140, 0);
-}
-
-.flying{
-    background-color: #87CEEB;
-}
-
-.psychic{
-    background-color: #FF69B4;
-}
-
-.ghost{
-    background-color: #2C3E50;
-}
-
-.poison{
-    background-color: #6A0DAD;
-}
-
-.fighting{
-    background-color: #D2691E;
-}
-
-.steel{
-    background-color: #B8B8D0;
-}
-
-.water{
-    background-color: #0077BE;
-}
-
-.dark{
-    background-color: #1C1C1C;
-}
-
-.dragon{
-    background-color: #8B0000;
-}
-
-.ground{
-    background-color: #D4A017;
-}
-
-.electric{
-    background-color: #FFD700;
-}
-
-.bug{
-    background-color: #A8B820;
-}
-
-.normal{
-    background-color: #A8A090;
-}
+.fire     { background-color: rgb(255, 140, 0); }
+.flying   { background-color: #87CEEB;}
+.psychic  { background-color: #FF69B4;}
+.ghost    { background-color: #2C3E50;}
+.poison   { background-color: #6A0DAD;}
+.fighting { background-color: #D2691E;}
+.steel    { background-color: #B8B8D0;}
+.water    { background-color: #0077BE; }
+.dark     { background-color: #1C1C1C; }
+.dragon   { background-color: #8B0000; }
+.ground   { background-color: #D4A017; }
+.electric { background-color: #FFD700;}
+.bug      { background-color: #A8B820;}
+.normal   { background-color: #A8A090;}
 
 /* End of Gallery */
 
@@ -493,7 +452,7 @@ footer{
 .terms-container h1{
     margin-top: 40px;
     margin-bottom: 40px;
-    border-bottom: 2px solid grey;
+    border-bottom: 2px solid var(--dodger-blue);
     padding-bottom: 10px;
 }
 
@@ -524,7 +483,7 @@ footer{
 .about-us-container h1{
     margin-top: 40px;
     margin-bottom: 40px;
-    border-bottom: 2px solid grey;
+    border-bottom: 2px solid var(--dodger-blue);
     padding-bottom: 10px;
 }
 
@@ -547,18 +506,15 @@ footer{
 /* Start of Contact Page */
 
 .contact-container{
-    min-height: 100dvh;
     display: flex;
     justify-content: center;
 }
 
 .contact-box{
-    margin-top: 40px;
     padding: 40px;
-    width: 400px;
+    width: 600px;
     height: 100%;
     border-radius: 10px;
-    box-shadow: 2px 2px 15px rgb(197, 237, 255);
 }
 
 #contact-form{
@@ -569,6 +525,8 @@ footer{
 
 .contact-container h1{
     margin: 20px;
+    border-bottom: 2px solid var(--dodger-blue);
+    padding-bottom: 10px;
 }
 
 .contact-container p{
@@ -750,6 +708,10 @@ footer{
         color: black
     }
 
+    .footer-links{
+        max-width: 400px;
+    }
+
 }
 
 /* End of 650px Media Query */
@@ -762,16 +724,51 @@ footer{
 
 }
 
+@media (max-width: 550px){
+    
+    .contact-box{
+        padding: none;
+        margin-top: 0px;
+    }
+
+}
+
 @media (max-width: 480px){
 
     .search-container{
         width: 70%;
+        margin-left: 0px;
     }
     
     .navbar{
         flex-wrap: wrap;
         gap: 20px;
     }
+
+    #hero-text-box{
+        grid-area: hero-text-box;
+        margin: 0px;
+        margin-top: 10px;
+    }
+
+    .footer-links{
+        max-width: 300px;
+    }
+    
+    .footer-links h1{
+        font-size: 25px;
+    }
+    
+    .footer-links h2{
+        font-size: 20px;
+    }
+
+    .contact-box{
+        padding: 0px;
+        width: 100%;
+        margin: 0px;
+    }
+
 }
 
 @media (max-width: 375px){
