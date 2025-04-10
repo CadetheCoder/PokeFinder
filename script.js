@@ -27,8 +27,6 @@ searchInput.addEventListener("keydown", e => {
             window.location.href = `search-results.html?query=${encodedQuery}`;
         }
     }
-
-    
 })
 
 // Search Results
@@ -37,42 +35,28 @@ if(window.location.pathname.includes("search-results.html")){
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get("query");
 
-    async function fetchData() {
-        try {
-            const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${query}`;
-            const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${query}`;
-    
-            // Fetch both URLs simultaneously
-            const [pokemonResponse, speciesResponse] = await Promise.all([
-                fetch(pokemonUrl),
-                fetch(speciesUrl)
-            ]);
-    
-            if (!pokemonResponse.ok || !speciesResponse.ok) {
-                throw new Error("Could not fetch resource");
+    async function fetchPokemonData(){
+        
+        try{
+            const pokemonRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
+            const speciesRes = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${query}`);
+
+            if(!pokemonRes.ok || !speciesRes.ok){
+                console.error("could not fetch resource")
             }
+
+            const pokemonData = await pokemonRes.json();
+            const speciesData = await speciesRes.json();
+
+            const searchResultsDisplay = document.getElementById("search-results-display");
     
-            const pokemonData = await pokemonResponse.json();
-            const speciesData = await speciesResponse.json();
-    
-            updateUI(pokemonData, speciesData);
-    
-        } catch (error) {
-            console.error(error);
-        }
-    }
-    
-    // Function to update UI with the data
-    function updateUI(pokemonData, speciesData) {
-        const searchResultsDisplay = document.getElementById("search-results-display");
-    
-        searchResultsDisplay.innerHTML = `
-            <p id="search-results-header">${pokemonData.name} #${pokemonData.id}</p>
-            <div id="search-results-img-box">
-                <img src="${pokemonData.sprites.front_default}">
-            </div>
-    
-            <div id="desc-box">
+            searchResultsDisplay.innerHTML = `
+                <p id="search-results-header">${pokemonData.name} #${pokemonData.id}</p>
+                <div id="search-results-img-box">
+                    <img src="${pokemonData.sprites.front_default}">
+                </div>
+
+                <div id="desc-box">
                 <p>${speciesData.flavor_text_entries.find(entry => entry.language.name === "en").flavor_text}</p>
                 <div id="height-box">
 
@@ -103,7 +87,7 @@ if(window.location.pathname.includes("search-results.html")){
         else{
            pokemonTypesElement.textContent = `${pokemonData.types[0].type.name}`
         }
-    
+
         const ctx = document.getElementById('myChart');
         new Chart(ctx, {
             type: 'bar',
@@ -141,11 +125,16 @@ if(window.location.pathname.includes("search-results.html")){
                 }
             }
         });
+
+
+
+        }
+        catch(error){
+            console.error(error);
+        }
     }
-    
-    // Call the function
-    fetchData();
-    
+
+    fetchPokemonData();
 }
 
 // Random Page 
