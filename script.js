@@ -142,26 +142,35 @@ const random = document.getElementById("random");
 const randomNumber = Math.floor(Math.random() * 1025) + 1;
 random.href = `/search-results.html?query=${randomNumber}`;
 
+// Pokedex Page 
 if(window.location.pathname.includes("pokedex.html")){
     const pokedexDisplay = document.getElementById("pokedex-display");
 
-    async function fetchPokedexData(){
+    async function getAllPokemon() {
+        const pokedexRes = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1025");
+        const pokedexData = await pokedexRes.json();
 
-        try{
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+        const promises = pokedexData.results.map(async (pokemon) => {
+            const pokemonDetailRes = await fetch(pokemon.url);
+            const pokemonDetailData = await pokemonDetailRes.json();
 
-            if(!response.ok){
-                throw new Error("Could not fetch resource");
-            }
+            const name = pokemonDetailData.name;
+            const img = pokemonDetailData.sprites.front_default;
+            const types = pokemonDetailData.types.map(t => t.type.name).join(" ");
+            img.loading = "lazy";
 
-            const data = await response.json();
-            
-        }
-        catch(error){
-            console.error(error);
-        }
+            pokedexDisplay.innerHTML += `
+            <a href="/search-results.html?query=${name}">
+                <div class="card">
+                    <img src="${img}">
+                    <p>${name}</p>
+                </div>
+            </a>`
+
+        })
     }
 
+    getAllPokemon();
 }
 
 
