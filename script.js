@@ -138,9 +138,12 @@ if(window.location.pathname.includes("search-results.html")){
 }
 
 // Random Page 
-const random = document.getElementById("random");
+const randomLinks = document.querySelectorAll(".random");
 const randomNumber = Math.floor(Math.random() * 1025) + 1;
-random.href = `/search-results.html?query=${randomNumber}`;
+randomLinks.forEach(link => {
+    link.href = `/search-results.html?query=${randomNumber}`;
+});
+
 
 // Pokedex Page 
 if(window.location.pathname.includes("pokedex.html")){
@@ -150,24 +153,48 @@ if(window.location.pathname.includes("pokedex.html")){
         const pokedexRes = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1025");
         const pokedexData = await pokedexRes.json();
 
+        const fragment = document.createDocumentFragment();
+
         const promises = pokedexData.results.map(async (pokemon) => {
             const pokemonDetailRes = await fetch(pokemon.url);
             const pokemonDetailData = await pokemonDetailRes.json();
 
             const name = pokemonDetailData.name;
             const img = pokemonDetailData.sprites.front_default;
-            const types = pokemonDetailData.types.map(t => t.type.name).join(" ");
+            const types = pokemonDetailData.types.map(t => t.type.name);
             img.loading = "lazy";
 
-            pokedexDisplay.innerHTML += `
-            <a href="/search-results.html?query=${name}">
-                <div class="card">
-                    <img src="${img}">
-                    <p>${name}</p>
-                </div>
-            </a>`
+            const card = document.createElement("div");
+            card.className = "card";
+
+            card.addEventListener("click", () => {
+                window.location.href = `/search-results.html?query=${name}`
+            });
+
+            const cardImg = document.createElement("img");
+            cardImg.src = img;
+
+            const cardName = document.createElement("p");
+            cardName.textContent = name;
+
+            const typeContainer = document.createElement("div");
+            typeContainer.className = "type-container"
+            types.forEach(type => {
+                const typeSpan = document.createElement("span");
+                typeSpan.className = `type ${type}`;
+                typeSpan.textContent = type;
+                typeContainer.appendChild(typeSpan);
+            });
+
+            card.appendChild(cardImg);
+            card.appendChild(cardName);
+            card.appendChild(typeContainer);
+            pokedexDisplay.appendChild(card);
 
         })
+
+        await Promise.all(promises);
+        pokedexDisplay.appendChild(fragment);
     }
 
     getAllPokemon();
