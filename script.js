@@ -49,91 +49,80 @@ if(window.location.pathname.includes("search-results.html")){
             const speciesData = await speciesRes.json();
 
             const searchResultsDisplay = document.getElementById("search-results-display");
-    
             searchResultsDisplay.innerHTML = `
-                <p id="search-results-header">${pokemonData.name} #${pokemonData.id}</p>
-                <div id="search-results-img-box">
-                    <img src="${pokemonData.sprites.front_default}">
-                </div>
-
-                <div id="desc-box">
-                <p>${speciesData.flavor_text_entries.find(entry => entry.language.name === "en").flavor_text}</p>
-                <div id="height-box">
-
-                    <p>Height: ${pokemonData.height}</p>
-                    <p>Weight: ${pokemonData.weight}</p>
-
-                    <div id="types-box">
-
-                        <p></p>
-                        <p id="types"></p>
-
+                <h1 id="search-results-header">${pokemonData.name} #${pokemonData.id}</h1>
+                <div id="left-column-box">
+                    <div id="search-results-img-box">
+                        <img src="${pokemonData.sprites.front_default}">
                     </div>
-
+                    <div>
+                    <canvas id="myChart"></canvas>
+                    </div>
                 </div>
-            </div>
+                <div id="desc-box">
+                    <h3>Description</h3>
+                    <p>${speciesData.flavor_text_entries.find(entry => entry.language.name === "en").flavor_text}</p>
+                    <h3>Types</h3>
+                    <div id="types-box">
+                    </div>
+                    <h3>Physical Attributes</h3>
+                    <span class="attributes">Height: ${pokemonData.height}</span>
+                    <span class="attributes">Weight: ${pokemonData.weight}</span>
+                </div>
+            `;
 
-             <div>
-                <canvas id="myChart"></canvas>
-            </div>
+            const typesBox = document.getElementById("types-box");
+            const searchTypes = pokemonData.types.map(t => t.type.name);
 
-           
-        `;
+            searchTypes.forEach(type => {
+                const searchTypeSpan = document.createElement("span");
+                searchTypeSpan.className = `search-results-type-span ${type}`;
+                searchTypeSpan.textContent = type;
+                typesBox.appendChild(searchTypeSpan)
+            });
 
-        const pokemonTypesElement = document.getElementById("types");
-        if(pokemonData.types[0] && pokemonData.types[1]){
-            pokemonTypesElement.textContent = `Types: ${pokemonData.types[0].type.name}, ${pokemonData.types[1].type.name}`
-        } 
-        else{
-           pokemonTypesElement.textContent = `${pokemonData.types[0].type.name}`
-        }
-
-        const ctx = document.getElementById('myChart');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Hp', 'Attack', 'Defense', 'Sp. Attack', 'Sp. Defense', 'Speed'],
-                datasets: [{
-                    label: 'Stats',
-                    data: pokemonData.stats.map(stat => stat.base_stat),
-                    backgroundColor: [
-                        "rgba(255, 99, 132, 0.8)",  // HP - Red
-                        "rgba(255, 159, 64, 0.8)",  // Attack - Orange
-                        "rgba(255, 205, 86, 0.8)",  // Defense - Yellow
-                        "rgba(75, 192, 192, 0.8)",  // Special Attack - Teal
-                        "rgba(54, 162, 235, 0.8)",  // Special Defense - Blue
-                        "rgba(153, 102, 255, 0.8)"  // Speed - Purple
-                    ],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                indexAxis: 'y',
-                plugins: {
-                    legend: { display: false } 
+            const ctx = document.getElementById('myChart');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Hp', 'Attack', 'Defense', 'Sp. Attack', 'Sp. Defense', 'Speed'],
+                    datasets: [{
+                        label: 'Stats',
+                        data: pokemonData.stats.map(stat => stat.base_stat),
+                        backgroundColor: [
+                            "rgba(255, 99, 132, 0.8)",  // HP - Red
+                            "rgba(255, 159, 64, 0.8)",  // Attack - Orange
+                            "rgba(255, 205, 86, 0.8)",  // Defense - Yellow
+                            "rgba(75, 192, 192, 0.8)",  // Special Attack - Teal
+                            "rgba(54, 162, 235, 0.8)",  // Special Defense - Blue
+                            "rgba(153, 102, 255, 0.8)"  // Speed - Purple
+                        ],
+                        borderWidth: 0
+                    }]
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: { display: false },
-                        ticks: { color: "black", font: { weight: 'bold' } },
+                options: {
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false } 
                     },
-                    x: {
-                        grid: { display: false },
-                        ticks: { color: "black" }
-                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { display: false },
+                            ticks: { color: "black", font: { weight: 'bold' } },
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: "black" }
+                        },
+                    }
                 }
-            }
-        });
-
-
-
+            });
         }
         catch(error){
             console.error(error);
         }
     }
-
     fetchPokemonData();
 }
 
@@ -143,7 +132,6 @@ const randomNumber = Math.floor(Math.random() * 1025) + 1;
 randomLinks.forEach(link => {
     link.href = `/search-results.html?query=${randomNumber}`;
 });
-
 
 // Pokedex Page 
 if(window.location.pathname.includes("pokedex.html")){
