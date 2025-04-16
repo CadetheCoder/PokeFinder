@@ -189,5 +189,3 @@ if(window.location.pathname.includes("pokedex.html")){
 }
 
 
-
-
