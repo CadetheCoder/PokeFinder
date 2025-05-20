@@ -1,5 +1,4 @@
 /* Start of Body */
-
 *{
     margin: 0px;
     padding: 0px;
@@ -16,12 +15,9 @@ section{
 :root{
     --dodger-blue: #1e90ff;
 }
-
 /* End of Body */
 
-
 /* Start of Nav */
-
 .navbar{
     display: flex;
     justify-content: space-around;
@@ -58,12 +54,9 @@ nav img{
 .on-screen-menu{
     margin-left: auto;
 }
-
 /* End of Nav */
 
-
 /* Start of Off Screen Menu */
-
 .off-screen-menu{
     height: 100vh;
     width: 100%;
@@ -118,12 +111,9 @@ nav img{
 .off-screen-menu.active{
     right: 0;
 }
-
 /* End of Off Screen Menu */
 
-
 /* Start of Ham Menu */
-
 .ham-menu{
     height: 40px;
     width: 25px;
@@ -172,12 +162,9 @@ nav img{
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
 }
-
 /* End of Ham Menu */
 
-
 /* Start of Search */
-
 .search-container{
     width: max-content;
     display: flex;
@@ -197,12 +184,9 @@ nav img{
     background-color: transparent;
     text-align: left;
 }
-
 /* End of Search */
 
-
 /* Start of Hero */
-
 #hero-img{
     width: 100%;
     grid-area: hero-img;
@@ -241,13 +225,9 @@ nav img{
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
-
 /* End of Hero */
 
-
 /* Start of Gallery */
-
 #gallery-display{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -367,9 +347,7 @@ nav img{
 }
 /* End of Gallery */
 
-
 /* Start of Footer */
-
 footer{
     display: flex;
     justify-content: space-evenly;
@@ -402,12 +380,9 @@ footer{
     text-decoration: none;
     color: black
 }
-
 /* End of Footer */
 
-
 /* Start of Search Results Page */
-
 #search-results-container{
     min-height: 80dvh;
     display: grid;
@@ -496,12 +471,9 @@ footer{
 #left-column-box{
     grid-area: left-column-box;
 }
-
 /* End of Search Results Page */
 
-
 /* Start of Terms Page */
-
 .terms-container{
     max-width: 600px;
     margin: 0 auto;
@@ -527,12 +499,9 @@ footer{
 .terms-container strong{
     color: var(--dodger-blue);
 }
-
 /* End of Terms Page */
 
-
 /* Start of About Us Page */
-
 .about-us-container{
     max-width: 600px;
     margin: 0 auto;
@@ -558,12 +527,9 @@ footer{
 .about-us-container strong{
     color: var(--dodger-blue);
 }
-
 /* End of About Us Page */
 
-
 /* Start of Contact Page */
-
 .contact-container{
     display: flex;
     justify-content: center;
@@ -632,12 +598,9 @@ footer{
     color: white;
     font-weight: bold;
 }
-
 /* End of Contact Page */
 
-
 /* Start of Pokedex Page */
-
 #pokedex-display{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -682,12 +645,9 @@ footer{
     align-items: center;
     gap: 10px;
 }
-
 /* End of Pokedex Page */
 
-
 /* Start of Container */
-
 .container{
     min-height: 100dvh;
     display: grid;
@@ -700,13 +660,7 @@ footer{
     "gallery-container gallery-container gallery-container gallery-container";
     margin-top: 100px;
 }
-
 /* End of Container */
-
-@media (max-width: 999px) {
-    
-}
-
 
 /* Start of 851px Media Query */
 @media (min-width: 851px) {
@@ -716,9 +670,7 @@ footer{
   }
 /* End of 851px Media Query */
 
-
 /* Start of 850px Media Query */
-
 @media (max-width: 850px) {
 
     .container{
@@ -759,7 +711,6 @@ footer{
         max-width: 15vw;
     }
 }
-
 /* End of 850px Media Query */
 
 @media (max-width: 750px){
@@ -790,9 +741,7 @@ footer{
         text-align: center;
     }
 }
-
 /* Start of 650px Media Query */
-
 @media (max-width: 650px) {
 
     .search-container{
@@ -813,7 +762,6 @@ footer{
     }
 
 }
-
 /* End of 650px Media Query */
 
 @media (max-width: 640px){
