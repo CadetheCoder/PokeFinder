@@ -30,8 +30,7 @@ searchInput.addEventListener("keydown", e => {
 })
 
 // Search Results
-if(window.location.pathname.includes("search-results.html")){
-
+if(document.body.classList.contains("search-results-page")){
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get("query");
 
@@ -134,7 +133,7 @@ randomLinks.forEach(link => {
 });
 
 // Pokedex Page 
-if(window.location.pathname.includes("pokedex.html")){
+if(document.body.classList.contains("pokedex-page")){
     const pokedexDisplay = document.getElementById("pokedex-display");
 
     async function getAllPokemon() {
@@ -187,5 +186,4 @@ if(window.location.pathname.includes("pokedex.html")){
 
     getAllPokemon();
 }
-
 
